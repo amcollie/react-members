@@ -1,0 +1,14 @@
+DROP DATABASE IF EXISTS members;
+
+CREATE USER members_api WITH SUPERUSER LOGIN CREATEDB INHERIT PASSWORD 'N8EYsqJK';
+
+CREATE DATABASE members WITH OWNER members_api;
+
+\c members 
+
+CREATE TABLE IF NOT EXISTS registered (
+    id serial PRIMARY KEY,
+    email VARCHAR(60) NOT NULL,
+    is_registered BOOLEAN NOT NULL
+);
+

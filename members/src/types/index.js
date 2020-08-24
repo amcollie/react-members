@@ -1,0 +1,5 @@
+export const CREATE_MEMBER = 'CREATE_MEMEBER';
+export const FETCH_MEMBERS = 'FETCH_MEMBERS';
+export const FETCH_MEMBER = 'FETCH_MEMBER';
+export const EDIT_MEMBER = 'EDIT_MEMBER';
+export const DELETE_MEMBER = 'DELETE_MEMBER';

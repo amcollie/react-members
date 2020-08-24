@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:12.4-alpine
+    environment:
+      POSTGRES_PASSWORD: Pat1zWRq
+      POSTGRES_USER: postgres
+      POSTGRES: postgres
+    volumes:
+      - ./server/pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    networks:
+      - backend
+
+  api:
+    image: amcollie/members-api
+    depends_on:
+      - db
+    ports:
+      - '3001:3001'
+    networks:
+      - backend
+
+  web:
+    image: amcollie/members-react-app
+    depends_on:
+      - db
+      - api
+    ports:
+      - '3000:80'
+    networks:
+      - frontend
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  pgdata:
