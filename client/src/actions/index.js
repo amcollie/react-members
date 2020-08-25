@@ -11,7 +11,7 @@ import {
 
 export const createMember = formValues => async dispatch => {
     console.log(formValues);
-    const response = await members.post('/members', formValues );
+    const response = await members.post('/', formValues );
 
     dispatch({ type: CREATE_MEMBER, payload: response.data });
 
@@ -19,19 +19,19 @@ export const createMember = formValues => async dispatch => {
 };
 
 export const fetchMembers = () => async dispatch => {
-    const response = await members.get('/members');
+    const response = await members.get('/');
 
     dispatch({ type: FETCH_MEMBERS, payload: response.data });
 };
 
 export const fetchMember = id => async dispatch => {
-    const response = await members.get(`/members/${id}`);
+    const response = await members.get(`/${id}`);
 
     dispatch({ type: FETCH_MEMBER, payload: response.data });
 };
 
 export const deleteMember = id => async dispatch => {
-    await members.delete(`/members/${id}`);
+    await members.delete(`/${id}`);
 
     dispatch({ type: DELETE_MEMBER, payload: id });
 
@@ -39,7 +39,7 @@ export const deleteMember = id => async dispatch => {
 };
 
 export const editMember = (id, formValues) => async dispatch => {
-    const response = await members.put(`/members/${id}`, formValues);
+    const response = await members.put(`/${id}`, formValues);
 
     dispatch({ type: EDIT_MEMBER, payload: response.data });
 

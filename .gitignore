@@ -1,6 +1,6 @@
 # dependencies
-server/node_modules
-server/pgdata*
+node_modules
+.env
 
 */.pnp
 .pnp.js
@@ -22,4 +22,3 @@ npm-debug.log
 yarn-debug.log
 yarn-error.log
 yarn.lock
-.env
