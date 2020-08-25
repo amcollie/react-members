@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -10,7 +11,7 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV.trimEnd() === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
