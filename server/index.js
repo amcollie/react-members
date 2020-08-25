@@ -11,9 +11,9 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-if (process.env.NODE_ENV.trimEnd() === 'production') {
+// if (process.env.NODE_ENV.trimEnd() === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
-}
+// }
 
 app.get('/', (req, res) => {
     res.status(200).json('Welcome to Members API');
